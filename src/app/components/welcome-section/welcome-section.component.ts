@@ -9,6 +9,7 @@ import { ModalControllerService } from '../../services/modal-controller.service'
 })
 export class WelcomeSectionComponent {
   private readonly _modalControllService = inject(ModalControllerService);
+
   openNewTaskModal() {
     const dialogRef = this._modalControllService.openNewTaskModal();
 
