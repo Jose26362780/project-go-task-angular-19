@@ -10,6 +10,10 @@ import { ModalControllerService } from '../../services/modal-controller.service'
 export class WelcomeSectionComponent {
   private readonly _modalControllService = inject(ModalControllerService);
   openNewTaskModal() {
-    this._modalControllService.openNewTaskModal();
+    const dialogRef = this._modalControllService.openNewTaskModal();
+
+    dialogRef.closed.subscribe((taskForm) => {
+      console.log('Tarefa criada: ', taskForm);
+    });
   }
 }
