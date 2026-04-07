@@ -1,6 +1,13 @@
 <div class="p-3 mb-6 flex overflow-x-auto scrollbar-hidden">
   <!-- Coluna a fazer  -->
-  <div class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6">
+  <div
+    class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6"
+    cdkDropList
+    #todoListCkdDropList="cdkDropList"
+    [cdkDropListData]="todoTasks"
+    [cdkDropListConnectedTo]="[doingListCkdDropList, doneListCkdDropList]"
+    (cdkDropListDropped)="drop($event)"
+  >
     <div class="py-2 border-b border-[#D1D5DB] flex items-center gap-1">
       <h1 class="font-bold">A Fazer</h1>
       <span
@@ -9,13 +16,20 @@
       >
     </div>
     <div class="flex flex-col gap-4">
-      <app-task-card />
-      <app-task-card />
-      <app-task-card />
+      @for (todoTask of todoTasks; track todoTask.id) {
+        <app-task-card cdkDrag />
+      }
     </div>
   </div>
   <!-- Coluna a fazendo  -->
-  <div class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6">
+  <div
+    class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6"
+    cdkDropList
+    #doingListCkdDropList="cdkDropList"
+    [cdkDropListData]="doingTasks"
+    [cdkDropListConnectedTo]="[todoListCkdDropList, doneListCkdDropList]"
+    (cdkDropListDropped)="drop($event)"
+  >
     <div class="py-2 border-b border-[#D1D5DB] flex items-center gap-1">
       <h1 class="font-bold">Fazendo</h1>
       <span
@@ -24,13 +38,20 @@
       >
     </div>
     <div class="flex flex-col gap-4">
-      <app-task-card />
-      <app-task-card />
-      <app-task-card />
+      @for (doingTask of doingTasks; track doingTask.id) {
+        <app-task-card cdkDrag />
+      }
     </div>
   </div>
   <!-- Coluna a concluido  -->
-  <div class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6">
+  <div
+    class="flex-1 py-3 px-6 min-w-60 flex flex-col gap-6"
+    cdkDropList
+    #doneListCkdDropList="cdkDropList"
+    [cdkDropListData]="doneTasks"
+    [cdkDropListConnectedTo]="[todoListCkdDropList, doingListCkdDropList]"
+    (cdkDropListDropped)="drop($event)"
+  >
     <div class="py-2 border-b border-[#D1D5DB] flex items-center gap-1">
       <h1 class="font-bold">Concluído</h1>
       <span
@@ -39,13 +60,15 @@
       >
     </div>
     <div class="flex flex-col gap-4">
-      <app-task-card />
-      <app-task-card />
-      <app-task-card />
+      @for (doneTask of doneTasks; track doneTask.id) {
+        <app-task-card cdkDrag />
+      }
     </div>
   </div>
 </div>
 
 <div class="bg-[#FAFAFA] rounded-sm py-3 px-5 border-black">
-  <p class="font-semibold text-lg text-[9CA3AF]">Nenhuma tarefa disponivel no momento</p>
+  <p class="font-semibold text-lg text-[9CA3AF]">
+    Nenhuma tarefa disponivel no momento
+  </p>
 </div>
