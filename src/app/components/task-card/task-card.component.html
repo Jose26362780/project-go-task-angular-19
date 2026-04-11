@@ -16,8 +16,9 @@
     <img src="images/icon-comments.svg" alt="" />
     <p
       class="font-semibold text-xs text-[#2A89EF] underline underline-offset-2 cursor-pointer"
+      (click)="openCommentsModal()"
     >
-     {{ task.comments.length }} Comentários
+      {{ task.comments.length }} Comentários
     </p>
     <p
       class="font-semibold text-xs text-[#2A89EF] underline underline-offset-2 cursor-pointer ml-auto"
