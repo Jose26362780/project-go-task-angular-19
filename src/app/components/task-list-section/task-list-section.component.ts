@@ -46,7 +46,7 @@ export class TaskListSectionComponent {
       case 'doing-column':
         taskNextStatus = TaskStatusEnum.DOING;
         break;
-      case 'tdone-column':
+      case 'done-column':
         taskNextStatus = TaskStatusEnum.DONE;
         break;
       default:

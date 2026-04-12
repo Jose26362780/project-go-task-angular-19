@@ -7,7 +7,6 @@ import { TaskService } from '../../services/task.service';
   selector: 'app-task-card',
   imports: [],
   templateUrl: './task-card.component.html',
-  styleUrl: './task-card.component.css',
 })
 export class TaskCardComponent {
   @Input({ required: true }) task!: ITask;
@@ -49,5 +48,9 @@ export class TaskCardComponent {
         );
       }
     });
+  }
+
+  deleteTask() {
+    this._taskService.deleteTask(this.task.id, this.task.status);
   }
 }

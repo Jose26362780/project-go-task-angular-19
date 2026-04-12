@@ -6,7 +6,6 @@ import { TaskService } from '../../services/task.service';
   selector: 'app-welcome-section',
   imports: [],
   templateUrl: './welcome-section.component.html',
-  styleUrl: './welcome-section.component.css',
 })
 export class WelcomeSectionComponent {
   private readonly _modalControllService = inject(ModalControllerService);

@@ -9,7 +9,6 @@ import { ITask } from '../../interfaces/task.interface';
   selector: 'app-task-comments-modal',
   imports: [ReactiveFormsModule],
   templateUrl: './task-comments-modal.component.html',
-  styleUrl: './task-comments-modal.component.css',
 })
 export class TaskCommentsModalComponent {
   taskCommentsChanged = false;
